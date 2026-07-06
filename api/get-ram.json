@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "ram_mb": 1024,
+  "available_ram_mb": [512, 1024, 1536, 2048, 4096]
+}
