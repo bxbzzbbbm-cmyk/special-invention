@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RAM Checker</title>
+</head>
+<body>
+
+<h2>RAM Checker API (GitHub Pages)</h2>
+
+<button onclick="loadRam()">Get RAM</button>
+
+<pre id="output">Click button...</pre>
+
+<script>
+async function loadRam() {
+  try {
+    const res = await fetch("./api/get-ram.json");
+    const data = await res.json();
+
+    document.getElementById("output").textContent =
+      "Success: " + data.success + "\n" +
+      "RAM MB: " + data.ram_mb + "\n" +
+      "Available: " + data.available_ram_mb.join(", ");
+  } catch (err) {
+    document.getElementById("output").textContent =
+      "Error loading JSON";
+  }
+}
+</script>
+
+</body>
+</html>
